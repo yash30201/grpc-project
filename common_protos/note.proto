@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service Note {
+    rpc AddNote (AddNoteRequest) returns (AddNoteResponse) {}
+}
+
+message AddNoteRequest {
+  string info = 1;
+}
+
+message AddNoteResponse {
+string id = 1;
+  string info = 2;
+}
+
