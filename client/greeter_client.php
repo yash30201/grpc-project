@@ -29,7 +29,7 @@ function greet($hostname, $name)
     $client = new Helloworld\GreeterClient($hostname, [
         'credentials' => Grpc\ChannelCredentials::createInsecure(),
         'grpc.default_compression_algorithm' => 2,
-        'grpc.default_compression_level' => 3,
+        'grpc.default_compression_level' => 2,
     ]);
     $request = new Helloworld\HelloRequest();
     $request->setName($name);
@@ -41,8 +41,8 @@ function greet($hostname, $name)
     echo $response->getMessage() . PHP_EOL;
 }
 
-$name = file_get_contents('data.txt');
+$name = file_get_contents('data/data2.txt');
 // $name = !empty($argv[1]) ? $argv[1] : 'world';
-// $hostname = !empty($argv[2]) ? $argv[2] : 'host.docker.internal:50051';
-$hostname = !empty($argv[2]) ? $argv[2] : 'localhost:50051';
+$hostname = !empty($argv[2]) ? $argv[2] : 'host.docker.internal:50051';
+// $hostname = !empty($argv[2]) ? $argv[2] : 'localhost:50051';
 greet($hostname, $name);
